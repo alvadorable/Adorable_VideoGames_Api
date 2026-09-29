@@ -15,7 +15,7 @@ Built for the *Build Your Own API Server Challenge*.
 
    ```bash
    git clone <your-repo-url>
-   cd game-api
+   cd Adorable_VideoGames_Api
    ```
 
 2. **(Recommended) Create a virtual environment**
@@ -206,3 +206,46 @@ curl -X DELETE http://127.0.0.1:5000/games/2
 If deployed to a free host (e.g. Render or Railway), the live URL will be listed here:
 
 `https://adorable-videogames-api.onrender.com`
+
+## Frontend
+
+A plain HTML, CSS, and JavaScript app (Fetch API, no framework) in the `frontend/` folder. It lists, views, adds, edits, and deletes games through the API above, shows the API's validation messages, handles 404s, and shows a loading state while data is fetched.
+
+### Run the app locally
+
+You need two terminals: one for the backend, one for the frontend.
+
+**Terminal 1: backend**
+
+```bash
+pip install -r requirements.txt
+python3 app.py
+```
+
+The API runs at `http://127.0.0.1:5000`.
+
+**Terminal 2: frontend**
+
+```bash
+cd frontend
+python3 -m http.server 8000
+```
+
+Open `http://localhost:8000` in your browser.
+
+### Configuration
+
+`API_URL` at the top of `frontend/app.js` points to the backend. It defaults to `http://127.0.0.1:5000`. To use the deployed API, change it to `https://adorable-videogames-api.onrender.com`.
+
+### CORS
+
+The frontend runs on port 8000 and the API on port 5000, so browsers treat them as different origins. The backend enables CORS with `flask-cors` (`CORS(app)` in `app.py`), which is why `flask-cors` is listed in `requirements.txt`.
+
+### Frontend structure
+
+```
+frontend/
+  index.html   page shell
+  style.css    styling
+  app.js       views, routing, and all fetch calls
+```

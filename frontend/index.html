@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FPS Games Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#/">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="13" cy="13" r="7"/><path d="M13 1v7M13 18v7M1 13h7M18 13h7"/>
+      </svg>
+      FPS Games Library
+    </a>
+    <a class="btn primary" href="#/new">Add game</a>
+  </header>
+
+  <main id="app" aria-live="polite"></main>
+  <div id="toast" role="status"></div>
+
+  <dialog id="confirm">
+    <form method="dialog">
+      <p id="confirm-text"></p>
+      <div class="row">
+        <button class="btn" value="cancel">Keep game</button>
+        <button class="btn danger" value="ok">Delete game</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
