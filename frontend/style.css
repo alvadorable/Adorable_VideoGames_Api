@@ -36,7 +36,7 @@ a { color: var(--accent); }
 
 .top, main { position: relative; z-index: 1; }
 .top {
-  display: flex; justify-content: space-between; align-items: center;
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
   padding: 0.9rem clamp(1rem, 4vw, 3rem);
   background: rgba(6, 10, 15, 0.88); backdrop-filter: blur(6px);
   margin-bottom: 6px;
@@ -141,4 +141,18 @@ dialog p { margin: 0 0 1.25rem; font-weight: 500; }
 @media (prefers-reduced-motion: reduce) {
   .spinner { animation-duration: 2s; }
   #toast { transition: none; }
+}
+
+.top .btn { justify-self: end; }
+.site-title {
+  font: 700 1.5rem "Chakra Petch", system-ui, sans-serif;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  text-shadow: 0 0 16px rgba(53, 208, 255, 0.55);
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .top { grid-template-columns: 1fr auto; row-gap: 0.4rem; }
+  .site-title { grid-column: 1 / -1; grid-row: 2; }
 }
